@@ -158,7 +158,7 @@ export default function LoadingScreen({ onReady }) {
         ))}
       </div>
       <div className="loading-content">
-        <h1>Oh so you scanned ha, prepare to be amazed :D</h1>
+        <h1>Oh so you saw it ha, prepare to be amazed :D</h1>
         <p>
           {failures.length
             ? 'Bruhh, Retry mo'
