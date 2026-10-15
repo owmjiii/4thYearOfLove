@@ -31,6 +31,8 @@ const ASSETS = [
   { label: 'song', url: Daylight, type: 'audio' },
 ]
 
+const RELEASE_AT = new Date(2026, 9, 17, 0, 0, 0, 0).getTime()
+
 const LILIES = Array.from({ length: 16 }, (_, index) => ({
   left: `${(index * 37 + 11) % 100}%`,
   size: `${30 + ((index * 19) % 38)}px`,
@@ -79,8 +81,19 @@ export default function LoadingScreen({ onReady }) {
   const [loaded, setLoaded] = useState(0)
   const [failures, setFailures] = useState([])
   const [finishing, setFinishing] = useState(false)
+  const [now, setNow] = useState(() => Date.now())
+  const released = now >= RELEASE_AT
 
   useEffect(() => {
+    if (released) return undefined
+
+    const timer = window.setInterval(() => setNow(Date.now()), 1000)
+    return () => window.clearInterval(timer)
+  }, [released])
+
+  useEffect(() => {
+    if (!released) return undefined
+
     let active = true
     let finishTimeout
     const startedAt = performance.now()
@@ -125,9 +138,20 @@ export default function LoadingScreen({ onReady }) {
       active = false
       window.clearTimeout(finishTimeout)
     }
-  }, [attempt, onReady])
+  }, [attempt, onReady, released])
 
   const progress = Math.round((loaded / ASSETS.length) * 100)
+  const remaining = Math.max(0, RELEASE_AT - now)
+  const days = Math.floor(remaining / 86400000)
+  const hours = Math.floor((remaining % 86400000) / 3600000)
+  const minutes = Math.floor((remaining % 3600000) / 60000)
+  const seconds = Math.floor((remaining % 60000) / 1000)
+  const countdown = [
+    ...(days > 0 ? [`${days}d`] : []),
+    `${String(hours).padStart(2, '0')}h`,
+    `${String(minutes).padStart(2, '0')}m`,
+    `${String(seconds).padStart(2, '0')}s`,
+  ].join(' ')
 
   return (
     <main className={`loading-screen${finishing ? ' is-finishing' : ''}`}>
@@ -158,26 +182,41 @@ export default function LoadingScreen({ onReady }) {
         ))}
       </div>
       <div className="loading-content">
-        <h1>Oh so you saw it na ha, prepare to be amazed :D</h1>
-        <p>
-          {failures.length
-            ? 'Bruhh, Retry mo'
-            : 'Are you ready lolove?'}
-        </p>
+        {released ? (
+          <>
+            <h1>Oh so you saw it na ha, prepare to be amazed :D</h1>
+            <p>
+              {failures.length
+                ? 'Bruhh, Retry mo'
+                : 'Are you ready lolove?'}
+            </p>
 
-        <div
-          className="loading-track"
-          role="progressbar"
-          aria-label="Loading photos, video, and music"
-          aria-valuemin="0"
-          aria-valuemax="100"
-          aria-valuenow={progress}
-        >
-          <span style={{ width: `${progress}%` }} />
-        </div>
-        <span className="loading-count">{progress}%</span>
+            <div
+              className="loading-track"
+              role="progressbar"
+              aria-label="Loading photos, video, and music"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              aria-valuenow={progress}
+            >
+              <span style={{ width: `${progress}%` }} />
+            </div>
+            <span className="loading-count">{progress}%</span>
+          </>
+        ) : (
+          <>
+            <h1>Almost time, lolove</h1>
+            <p className="release-note">Opening this in</p>
+            <span className="release-countdown" role="timer">
+              {countdown}
+            </span>
+            <p className="release-date">
+              October 17, 2026 at 12:00 AM
+            </p>
+          </>
+        )}
 
-        {failures.length > 0 && (
+        {released && failures.length > 0 && (
           <>
             <p className="loading-error">
               Could not load: {failures.join(', ')}

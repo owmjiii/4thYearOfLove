@@ -282,6 +282,21 @@ body {
   font-family: 'Space Mono', monospace;
   font-size: .85rem;
 }
+.loading-content .release-note {
+  margin-bottom: .35rem;
+}
+.release-countdown {
+  display: block;
+  color: #770C1B;
+  font-family: 'Space Mono', monospace;
+  font-size: clamp(1.4rem, 6vw, 2rem);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.loading-content .release-date {
+  margin: .75rem 0 0;
+  font-size: .9rem;
+}
 .loading-content .loading-error {
   margin-top: 1rem;
   font-size: .85rem;
