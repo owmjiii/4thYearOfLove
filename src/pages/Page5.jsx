@@ -2,28 +2,10 @@ import { Fragment, useEffect, useMemo, useRef, useState } from 'react'
 import Dots from '../components/Dots.jsx'
 
 /* ✏️ EDIT YOUR LETTER HERE ---------------------------------------- */
-const TITLE = ['Happy 4th Year of Us love!', 'Parang gusto ko bumalik sa umpisa....']
+const TITLE = ['Lorem ipsum dolor sit amet consectetur adipiscing elit et et']
 
 // a blank line = new paragraph, a single line break stays inside the paragraph
-const LETTER = `
-HOY K! alam mo ba na sobrang thankful ko kasi nakita ko agad to sa bio mo? When I remember those times parang kaya kong bumalik, parang kaya ko i-relive sa imagination ko yung happiness, kilig, at kaba na nararamdaman ko nung panahon na yun.
-
-Kaya naniniwala ako na yung relationship natin is very genuine. For sure na legit na legit, kasi it starts accidentally, you assume i assume. And this, ito na yung bunga ng pagiging assuming nating dalawa.
-
-4 Years of love, joy, care, and also there are moments na malungkot, na napaiyak kita, na nag-away tayo. Pero all that feelings, all that moments, it always lead to having both of us together padin. Sa huli tayo pa din, sa huli andiyan ka pa din sa tabi ko at nandito pa din ako sa tabi mo. For the past 4 years, madami ako natutunan sayo, at may mga bagay pa na nagawa na never ko pa na try lalo na this year.
-
-And I'm very very grateful in every bit of it. You made me experience things that I never experience before, mga experiences na takot ako gawin. But with you, I believe I'm safe, I believe I can do those things na pwede ko naman i-try. (Yung mga gala natin tinutukoy ko haa)
-
-Kaya please have faith in me, na magagawa din natin yung iba omki?
-
-Thank you very very much for all your sacrifices, pag-iintindi, at walang sawang pagmamahal sakin.
-
-I love you always baby, and no matter what I will always be here for you, for us. Always remember na sayo lang ako, ikaw lang ang K ko. And I will always be your M. And this M will love you endlessly and unconditionally. To many many more foodtrips and gala! I can't wait to tell this stories talaga sa wedding day natin nyahahaha
-
-(I'm sure that you will love this gift of mine, I'm sorry if hindi ko keri bumili ng mga material gifts as of the moment. I promise to bawi soon enoughhhh)
-
-Oh to live to love, I love you so much baby!
-`
+const LETTER = `lorem ipsum dolor sit amet consectetur adipiscing elit eu et voluptas dolor omnis ipsum atque do voluptatum ex pariatur ducimus dolorum ipsum velit deleniti at cumque magna anim voluptatum tempore deleniti quod quos excepturi sed culpa maxime incididunt quibusdam similique provident fugiat eos quidem dolore dolor ut laboris anim eu cillum quo irure rerum dolorem culpa cum et cum ad amet laborum labore et lorem provident et esse qui laborum corrupti pariatur cupiditate mollit adipiscing omnis cupidatat ad libero et proident cillum possimus do dolore et laboris voluptate assumenda quod occaecat dolore imperdiet et sunt omnis in optio magna dolore sed cupidatat culpa sed consequatur deserunt et optio culpa consectetur excepteur elit occaecat fugiat quis labore placeat omnis laborum iusto est ea cupidatat eligendi irure corrupti est placeat praesentium ut voluptas elit mollit est eligendi praesentium incididunt id deleniti eos optio officia nulla velit lorem corrupti minim commodo quos autem est ex non est occaecat cum occaecat amet cupiditate officia deserunt culpa ullamco distinctio ex similique tempor enim laboris quis aut provident omnis deleniti sint ut iusto ex esse accusamus in id sint nulla dignissimos distinctio et laborum in eum pariatur dolorem magna facere dolorem nostrud possimus harum voluptate pariatur est et omnis et assumenda in et dolor at officia excepteur cum in possimus vero qui et consectetur est dolore et ut fugiat fugiat occaecat`
 
 const SPEED = 1 // writing speed: 0.7 = slower, 1.5 = faster
 /* ------------------------------------------------------------------ */

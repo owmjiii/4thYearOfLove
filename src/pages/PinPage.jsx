@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { createPortal } from 'react-dom'
 
-const PIN = '1017'          // ← change this (can include "." too, e.g. '4.12')
-const CLUE = 'Bio'          // ← change the clue text
+const PIN = '0000'          // ← change this (can include "." too, e.g. '4.12')
+const CLUE = '0000 Pass'          // ← change the clue text
 const KEYS = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '.', '0', 'DEL']
 
 export default function PinPage() {

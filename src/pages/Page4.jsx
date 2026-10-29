@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import Dots from '../components/Dots.jsx'
 import Polaroid from '../components/Polaroid.jsx'
 
-const CAPTION = 'highlight of the year: gala and ft'
+const CAPTION = 'lorem ipsum dolor sit amet consectetur'
 
 // load every photo from the folders, sorted by file name
 const byName = (obj) =>
@@ -13,7 +13,7 @@ const byName = (obj) =>
 
 const heroFiles = byName(import.meta.glob('../images/hero.*', { eager: true, import: 'default' }))
 const photoFiles = byName(
-  import.meta.glob('../images/photos/*.jpg', {
+  import.meta.glob('../images/photos/*.png', {
     eager: true,
     import: 'default',
   })

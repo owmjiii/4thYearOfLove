@@ -14,7 +14,7 @@ function Page1() {
 
   return (
     <div className={`page ${opening ? 'leaving' : ''}`}>
-      <h1 className="title">A special letter just for my k</h1>
+      <h1 className="title">A special letter just for u</h1>
       <img className="env-img" src={ClosedEnvelope} alt="Closed envelope" onClick={open} />
       <button className="button" onClick={open}>Tap to Open</button>
     </div>
